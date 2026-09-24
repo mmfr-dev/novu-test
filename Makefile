@@ -6,6 +6,9 @@ dev-up:
 dev-down:
 	docker compose -f docker-compose-dev.yml --env-file .dev.env down
 
+dev-stop:
+	docker compose -f docker-compose-dev.yml --env-file .dev.env stop
+
 dev-logs:
 	docker compose -f docker-compose-dev.yml --env-file .dev.env logs -f
 
