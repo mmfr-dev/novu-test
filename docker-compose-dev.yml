@@ -97,8 +97,10 @@ services:
       IS_V2_ENABLED: ${IS_V2_ENABLED}
       IS_SELF_HOSTED: ${IS_SELF_HOSTED}
       NOVU_TELEMETRY: false
+      ENABLE_OTEL: ${ENABLE_OTEL}
     ports:
       - ${API_PORT}:${API_PORT}
+      - ${API_PROMETHEUS_PORT}:9464
     healthcheck:
       test:
         [
@@ -153,6 +155,9 @@ services:
       IS_EMAIL_INLINE_CSS_DISABLED: ${IS_EMAIL_INLINE_CSS_DISABLED}
       IS_USE_MERGED_DIGEST_ID_ENABLED: ${IS_USE_MERGED_DIGEST_ID_ENABLED}
       NOVU_TELEMETRY: false
+      ENABLE_OTEL: ${ENABLE_OTEL}
+    ports:
+      - ${WORKER_PROMETHEUS_PORT}:9464
     healthcheck:
       test:
         [
@@ -192,8 +197,10 @@ services:
       NEW_RELIC_ENABLED: ${NEW_RELIC_ENABLED}
       NEW_RELIC_APP_NAME: ${NEW_RELIC_APP_NAME}
       NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
+      ENABLE_OTEL: ${ENABLE_OTEL}
     ports:
       - ${WS_PORT}:${WS_PORT}
+      - ${WS_PROMETHEUS_PORT}:9464
     healthcheck:
       test:
         [
